@@ -2,13 +2,13 @@
 
 from __future__ import annotations
 
-import base64
 import logging
 import os
 
 from yarl import URL
 
 from johndeere.mixins.fields import FieldsMixin
+from johndeere.mixins.org import OrganizationsMixin
 from johndeere.mixins.private import PrivateMixin
 
 
@@ -20,7 +20,11 @@ __all__ = [
 DEFAULT_LOGGER = logging.getLogger("johndeere")
 
 
-class Client(PrivateMixin, FieldsMixin):
+class Client(
+    PrivateMixin,
+    OrganizationsMixin,
+    FieldsMixin,
+):
 
     BASE_URL = URL("https://sandboxapi.deere.com/platform/")
 
@@ -39,7 +43,7 @@ class Client(PrivateMixin, FieldsMixin):
         # Initialize all mixins
         super().__init__(*args, **kwargs)
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return (
             f"{self.__class__.__name__}("
             f"access_token={self.mask(self.access_token)!r})"
