@@ -3,20 +3,14 @@
 from __future__ import annotations
 
 from johndeere.enum import ExtendableStrEnum
+from johndeere.mixins.commons import RecordStatuses
 from johndeere.typing import JSONLike
 
 
 __all__ = [
     # Class exports
     "FieldsMixin",
-    "RecordStatuses",
 ]
-
-
-class RecordStatuses(ExtendableStrEnum):
-    ALL: str = "ALL"
-    ACTIVE: str = "ACTIVE"
-    ARCHIVED: str = "ARCHIVED"
 
 
 class FieldOperationTypes(ExtendableStrEnum):
@@ -42,7 +36,6 @@ class FieldsMixin:
         farm_name: str | None = None,
         client_name: str | None = None,
         record_filter: str = RecordStatuses.ACTIVE.value,
-        embed: str | list[str] | None = None,
     ) -> JSONLike:
         """Get the list of fields within a specified organization.
 

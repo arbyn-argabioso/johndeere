@@ -7,6 +7,7 @@ import os
 
 from yarl import URL
 
+from johndeere.mixins.clients import ClientsMixin
 from johndeere.mixins.fields import FieldsMixin
 from johndeere.mixins.org import OrganizationsMixin
 from johndeere.mixins.private import PrivateMixin
@@ -23,6 +24,7 @@ DEFAULT_LOGGER = logging.getLogger("johndeere")
 class Client(
     PrivateMixin,
     OrganizationsMixin,
+    ClientsMixin,
     FieldsMixin,
 ):
 
