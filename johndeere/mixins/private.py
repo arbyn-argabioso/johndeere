@@ -88,7 +88,7 @@ class PrivateMixin:
 
     def __init__(self, *args, **kwargs):
         self.private = JohnDeereSession()
-        self.private.verify = False  # fix SSLError / HTTPSConnectionPool
+        self.private.verify = True  # `False` to fix SSL-related errors
         self.private.headers = {
             "Authorization": f"Bearer {self._access_token}",
             "Accept": "application/vnd.deere.axiom.v3+json",

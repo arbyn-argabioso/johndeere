@@ -8,6 +8,7 @@ import os
 from yarl import URL
 
 from johndeere.mixins.clients import ClientsMixin
+from johndeere.mixins.farms import FarmsMixin
 from johndeere.mixins.fields import FieldsMixin
 from johndeere.mixins.org import OrganizationsMixin
 from johndeere.mixins.private import PrivateMixin
@@ -25,6 +26,7 @@ class Client(
     PrivateMixin,
     OrganizationsMixin,
     ClientsMixin,
+    FarmsMixin,
     FieldsMixin,
 ):
 
