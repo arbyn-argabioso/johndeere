@@ -16,7 +16,7 @@ REQUIREMENTS = [
 
 setuptools.setup(
     name="johndeere",
-    version="0.0.5",
+    version="0.0.6",
     author="Arbyn Acosta",
     author_email="arbyn.acosta@gmail.com",
     # url="https://github.com/adw0rd/instagrapi",
